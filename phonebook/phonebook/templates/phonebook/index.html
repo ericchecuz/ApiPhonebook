@@ -1,0 +1,22 @@
+{% if phonebooks %}
+<ul>
+        {% for phonebook in phonebooks %}
+            <li>
+                <a href="/phonebook/{{ phonebook.id }}/">{{ phonebook.name_text}} </a>
+            </li>
+        {% endfor %}
+</ul>
+{% else %}
+    <p>No phonebooks available</p>
+{% endif %}
+
+<form action="/phonebook/add/" method="post">
+    {%csrf_token%}
+    <h1> New Phonebook </h1>
+      <input type="text" name="phonebook" value="">
+      <input type="submit" value="Create">
+
+</form>
+
+
+

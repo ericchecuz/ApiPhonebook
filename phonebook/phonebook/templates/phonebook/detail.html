@@ -1,0 +1,14 @@
+
+{% for contact in phonebook.contacts_set.all %}
+    <h1>{{ contact.name_text }} {{ contact.surname_text }} {{ contact.phonenumber_number }} </h1>
+{% endfor %}
+
+<form action="/phonebook/{{phonebook.id}}/addcontact/" method="post">
+    {%csrf_token%}
+    <h1> New Contact </h1>
+      <input type="text" name="NewName" value="">
+      <input type="text" name="NewSurname" value="">
+      <input type="text" name="NewNumber" value="">
+      <input type="submit" value="Create">
+
+</form>
